@@ -6,7 +6,6 @@ RSpec.feature "User views all artists" do
       Artist.create(name: artist_name, image_path: 'http://theillixer.com/wp-content/uploads/2014/11/beta14-phase1-nominees-16x9-BestNewArtist.png')
     end
     visit '/artists'
-    save_and_open_page
 
     artists.each do |artist|
       expect(page).to have_link artist.name, href: artist_path(artist)
