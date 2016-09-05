@@ -8,7 +8,11 @@ class ArtistsController < ApplicationController
 
   def create
     @artist = Artist.create(artist_params)
-    redirect_to @artist
+    if @artist.save
+      redirect_to @artist
+    else
+      render :new
+    end
   end
 
   def show
